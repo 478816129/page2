@@ -1,7 +1,7 @@
 <template>
     <div class="page2">
      <Opversion></Opversion>
-     
+
 
     </div>
 </template>
@@ -13,8 +13,8 @@ export default {
     }
 }
 </script>
-<style  scoped>
-.page2{
-    background-color: rgb(34, 18, 138);
+<style>
+body{
+  background-color: rgb(34, 18, 138);
 }
 </style>

@@ -24,6 +24,10 @@
 
       </div>
     </div>
+    <!-- <div class="secondtop">
+      <el-button type="primary" icon="el-icon-search">登录领取24小时会员</el-button>
+
+    </div> -->
   </div>
 </template>
 <script>
@@ -36,9 +40,11 @@ export default {
 };
 </script>
 <style  scoped>
+
+
 .top {
   widows: 1300px;
-  height: 1300px;
+  
 }
 .top > .toptext > div {
   color: aliceblue;
@@ -47,7 +53,7 @@ export default {
 .toptext {
   position: absolute;
   top: 150px;
-  left: 200px;
+  left: 400px;
   text-align: left;
   width: 500px;
 }
@@ -64,5 +70,10 @@ export default {
 #p3,#p4{
   font-size: 16px;
   color: #9896e0;
+}
+.toppic{
+  position:absolute ;
+  right: 500px;
+  top: 200px;
 }
 </style>
