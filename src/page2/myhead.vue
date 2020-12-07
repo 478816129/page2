@@ -203,7 +203,7 @@ export default {
   text-align: center;
   margin: 0 auto;
   box-sizing: border-box;
-  height: 58px;
+  
   }
 /* .header-item {
   display: flex;

@@ -1,5 +1,5 @@
 <template>
-  <div class="page2-first">
+  <div class="page2-first" id="home" @mousemove="mymove()">
     <myhead></myhead>
     <div class="top">
       <div class="toptext">
@@ -26,8 +26,41 @@
     </div>
     <!-- <div class="secondtop">
       <el-button type="primary" icon="el-icon-search">登录领取24小时会员</el-button>
-
+   
     </div> -->
+    <!-- 下半部分开始 -->
+     <div class="bottom" style="padding:0px 100px">
+      <div class="dataList">
+        <div class="rotate">
+          <img src="../../public/img/op2/circle_01.png" alt />
+          <img src="../../public/img/op2/circle_02.png" alt />
+          <img src="../../public/img/op2/circle_03.png" alt />
+          <img src="../../public/img/op2/tv.png" alt />
+        </div>
+        <p>1,697,128</p>
+        <span>今日新增视频</span>
+      </div>
+      <div class="dataList">
+        <div class="rotate">
+          <img src="../../public/img/op2/circle_01.png" alt />
+          <img src="../../public/img/op2/circle_02.png" alt />
+          <img src="../../public/img/op2/circle_03.png" alt />
+          <img src="../../public/img/op2/music.png" alt />
+        </div>
+        <p>539,620</p>
+        <span>今日新增音乐</span>
+      </div>
+      <div class="dataList">
+        <div class="rotate">
+          <img src="../../public/img/op2/circle_01.png" alt />
+          <img src="../../public/img/op2/circle_02.png" alt />
+          <img src="../../public/img/op2/circle_03.png" alt />
+          <img src="../../public/img/op2/people.png" alt />
+        </div>
+        <p>1,529,260</p>
+        <span>今日更新播主信息</span>
+      </div>
+    </div>
   </div>
 </template>
 <script>
@@ -37,23 +70,56 @@ export default {
   components: {
     myhead,
   },
+  methods:{
+ mymove(e) {
+      e = window.event || e;
+      let home = document.getElementById("home");
+     
+      let imgs = document.getElementsByClassName("analysisImg")[0];
+      
+      // console.log(home)
+      // console.log(imgs)
+      let w = e.movementX;
+      let h = e.movementY;
+      // console.log(w)
+      // console.log(h)
+      if (w >50 || w<-50) {
+        w = 0;
+      }
+      if (h >50 || h<-50) {
+        h = 0;
+      }
+      //移动
+      imgs.style.top = h + "px";
+       
+      imgs.style.left = w + "px";
+      
+    },
+  }
+  
+
 };
 </script>
 <style  scoped>
 
-
-.top {
-  widows: 1300px;
+#home{
+  position: relative;
+   
   
 }
+.top {
+  width: 1300px;
+  
+}
+
 .top > .toptext > div {
   color: aliceblue;
   margin-top: 30px;
 }
 .toptext {
-  position: absolute;
-  top: 150px;
-  left: 400px;
+  
+  margin-top: 120px;
+  margin-left: 400px;
   text-align: left;
   width: 500px;
 }
@@ -72,8 +138,84 @@ export default {
   color: #9896e0;
 }
 .toppic{
+ position:absolute ;
+  margin-left: 1100px;
+  top:200px
+}
+.analysisImg{
+  
   position:absolute ;
-  right: 500px;
-  top: 200px;
+  
+  
+  transition: all 0.35s ;
+  
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  width: 1200px;
+  margin: 100px 400px;
+}
+
+
+.rotate {
+  position: relative;
+  width: 105px;
+  height: 105px;
+  margin: 20px auto 0;
+  
+}
+.rotate img {
+  position: absolute;
+}
+.rotate img:first-child {
+  left: 0;
+  animation: xz 2s linear infinite;
+}
+.rotate img:nth-child(2) {
+  left: 9px;
+  top: 10px;
+  animation: nxz 2s linear infinite;
+}
+.rotate img:nth-child(3) {
+  left: 15px;
+  top: 17px;
+  animation: xz 2s linear infinite;
+}
+.rotate img:last-child {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+@keyframes xz {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes nxz {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+.dataList p {
+  font-size: 34px;
+  color: #f1f1f1;
+  margin-top: 10px;
+  font-weight: 400;
+}
+.dataList span {
+  color: #9896e0;
+  font-weight: 400;
+  margin-top: 5px;
+  display: block;
+  text-align: center;
+  font-size: 14px;
 }
 </style>
